@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progresBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBtmSheet"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_margin="5dp"
+        android:src="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:fontFamily="@font/myfont"
+        android:textColor="@color/g_black"
+        app:drawableLeftCompat="@drawable/ic_category"
+        app:drawableTint="@color/g_black"
+        app:layout_constraintStart_toEndOf="@+id/imgBtmSheet"
+        app:layout_constraintTop_toTopOf="@+id/imgBtmSheet" />
+
+    <TextView
+        android:id="@+id/tvArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:fontFamily="@font/myfont"
+        android:textColor="@color/g_black"
+        app:drawableLeftCompat="@drawable/ic_location"
+        app:drawableTint="@color/g_black"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCategory"
+        app:layout_constraintStart_toEndOf="@+id/tvCategory"
+        app:layout_constraintTop_toTopOf="@+id/tvCategory" />
+
+    <TextView
+        android:id="@+id/tvMealName"
+        style="@style/btmSheetTv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toTopOf="@+id/tvReadMore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgBtmSheet"
+        app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
+
+    <TextView
+        android:id="@+id/tvReadMore"
+        style="@style/btmSheetTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/readmore"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtmSheet"
+        app:layout_constraintStart_toStartOf="@+id/tvMealName"
+        app:layout_constraintTop_toBottomOf="@+id/tvMealName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.foodapp.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_favoritFragment"
+            app:destination="@id/favoritFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bottomSheetFragment2"
+            app:destination="@id/bottomSheetFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritFragment"
+        android:name="com.example.foodapp.FavoritFragment"
+        android:label="fragment_favorit"
+        tools:layout="@layout/fragment_favorit" >
+        <action
+            android:id="@+id/action_favoritFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_favoritFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.foodapp.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
+    <dialog
+        android:id="@+id/bottomSheetFragment2"
+        android:name="com.example.foodapp.common.bottomSheet.BottomSheetFragment"
+        android:label="BottomSheetFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </dialog>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.foodapp.common.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
