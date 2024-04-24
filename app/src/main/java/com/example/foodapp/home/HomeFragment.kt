@@ -114,10 +114,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun showLoading() {
         super.showLoading()
+        binding.apply {
+            rvCategory.visibility = View.INVISIBLE
+            imgRandomMeal.visibility = View.INVISIBLE
+        }
     }
 
     override fun finishLoading() {
         super.finishLoading()
+        binding.apply {
+            rvCategory.visibility = View.VISIBLE
+            imgRandomMeal.visibility = View.VISIBLE
+
+        }
     }
 
 

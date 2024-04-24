@@ -36,7 +36,6 @@ class DetailsViewModel @Inject constructor(private val repo: Repo) : ViewModel()
             } catch (e: Exception) {
                 _detailsLiveData.postValue(Resorce.Error("An error occurred: ${e.message}"))
             }
-
         }
     }
 }

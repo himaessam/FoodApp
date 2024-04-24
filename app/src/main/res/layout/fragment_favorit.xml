@@ -3,11 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoritFragment"
-   >
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/favAnim"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_240sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/splash_animation" />
 
+    <TextView
+        android:id="@+id/tvCoding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/myfont"
+        android:text="maintaining ..."
+        android:textSize="@dimen/_30ssp"
+        android:textColor="@color/g_black"
+        app:layout_constraintTop_toBottomOf="@id/favAnim"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
 
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,10 @@ interface ApiCalls {
     suspend fun getPopularMeals(@Query("c") category: String): ModelPopularMeal
 
     @GET("categories.php")
-    suspend fun getCategory(@Query("k")category: String):ModelAllCategories
+    suspend fun getCategory(@Query("k") category: String): ModelAllCategories
 
     @GET("lookup.php")
-    suspend fun getMealDetails(@Query("i")mealId:Int):ModelMeal
+    suspend fun getMealDetails(@Query("i") mealId: Int): ModelMeal
+
+
 }

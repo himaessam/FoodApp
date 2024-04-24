@@ -44,8 +44,8 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.Holder>() {
 
                 Glide.with(binding.root.context)
                     .load(categoryList.strCategoryThumb)
-                    .into(imgMeal)
-                tvCategoryDisc.text = categoryList.strCategory
+                    .into(imgCategory)
+                tvCategoryName.text = categoryList.strCategory
 
             }
 

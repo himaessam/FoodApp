@@ -89,7 +89,8 @@ dependencies {
     // Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.46")
     kapt("com.google.dagger:hilt-android-compiler:2.46")
-
+    //lottie
+    implementation ("com.airbnb.android:lottie:3.4.2")
 }
 kapt {
     correctErrorTypes = true
