@@ -35,7 +35,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         observe()
         onClicks()
     }
-
     private var ide: Int? = null
     override fun onClicks() {
         binding.apply {
@@ -44,13 +43,27 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     HomeFragmentDirections.actionHomeFragmentToDetailsFragment(ide!!)
                 )
             }
+            imgRandomMeal.setOnLongClickListener{
+                findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToBottomSheetFragment2(ide!!)
+                )
+                true
+            }
             adapterPopularMeals.setOnLongClick {
                 findNavController().navigate(
                     HomeFragmentDirections.actionHomeFragmentToBottomSheetFragment2(it)
                 )
-
             }
-
+            adapterPopularMeals.setOnLongClick {
+                findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToBottomSheetFragment2(it)
+                )
+            }
+            adapterPopularMeals.setOnClick {
+                findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToDetailsFragment(it)
+                )
+            }
         }
     }
 

@@ -42,5 +42,4 @@
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
         tools:listitem="@layout/item_f_category"
         />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
