@@ -15,6 +15,15 @@
         android:theme="@style/Theme.FoodApp"
         tools:targetApi="31">
         <activity
+            android:name=".splash.activtySplash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".base.MainActivity"
             android:exported="true">
             <intent-filter>

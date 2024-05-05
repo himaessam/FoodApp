@@ -41,5 +41,9 @@ class MainActivity : AppCompatActivity() {
             false
         }
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 
 }

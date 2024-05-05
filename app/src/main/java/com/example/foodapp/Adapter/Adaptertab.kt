@@ -14,9 +14,6 @@ class Adaptertab:RecyclerView.Adapter<Adaptertab.Holder>() {
     fun setOnClick(onClick: (Int) -> Unit) {
         this.onClick = onClick
     }
-
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ItemtabBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return Holder(binding)
@@ -34,8 +31,6 @@ class Adaptertab:RecyclerView.Adapter<Adaptertab.Holder>() {
     fun setOnLongClick(onLongClick: (Int) -> Unit) {
         this.onLongClick = onLongClick
     }
-
-
     inner class Holder(val binding: ItemtabBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
