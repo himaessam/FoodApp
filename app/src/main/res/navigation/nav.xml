@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.foodapp.home.HomeFragment"
+        android:name="com.example.foodapp.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,10 +19,13 @@
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mealsFragment"
+            app:destination="@id/mealsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritFragment"
-        android:name="com.example.foodapp.favorit.FavoritFragment"
+        android:name="com.example.foodapp.ui.favorit.FavoritFragment"
         android:label="fragment_favorit"
         tools:layout="@layout/fragment_favorit" >
         <action
@@ -34,9 +37,13 @@
     </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
-        android:name="com.example.foodapp.CategoriesFragment"
+        android:name="com.example.foodapp.ui.categorie.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_mealsFragment"
+            app:destination="@id/mealsFragment" />
+    </fragment>
     <dialog
         android:id="@+id/bottomSheetFragment2"
         android:name="com.example.foodapp.common.bottomSheet.BottomSheetFragment"
@@ -53,5 +60,16 @@
         <argument
             android:name="id"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealsFragment"
+        android:name="com.example.foodapp.ui.categorie.MealsFragment"
+        android:label="MealsFragment" >
+        <action
+            android:id="@+id/action_mealsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -1,11 +1,15 @@
 package com.example.foodapp.model
 
-data class ModelMeal(
-    val meals: List<Meal>
-)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-data class Meal(
+data class ModelMeal(
+    val meals: List<CategoryMeal>
+)
+@Entity(tableName = "mealInfo")
+data class CategoryMeal(
     val dateModified: Any,
+    @PrimaryKey
     val idMeal: String,
     val strArea: String,
     val strCategory: String,

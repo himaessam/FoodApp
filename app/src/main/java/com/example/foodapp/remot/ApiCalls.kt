@@ -1,5 +1,6 @@
 package com.example.foodapp.remot
 
+
 import com.example.foodapp.model.ModelAllCategories
 import com.example.foodapp.model.ModelMeal
 import com.example.foodapp.model.ModelPopularMeal
@@ -19,6 +20,19 @@ interface ApiCalls {
 
     @GET("lookup.php")
     suspend fun getMealDetails(@Query("i") mealId: Int): ModelMeal
+
+
+
+    @GET("categories.php")
+    suspend fun getAllCategories()
+            : ModelAllCategories
+
+    @GET("filter.php")
+    suspend fun getMealsCategory(
+        @Query("c") category: String
+    ): ModelPopularMeal
+
+
 
 
 }

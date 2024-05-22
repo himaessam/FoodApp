@@ -3,7 +3,7 @@ package com.example.foodapp.common
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.foodapp.model.Meal
+import com.example.foodapp.model.CategoryMeal
 import com.example.foodapp.remot.Repo
 import com.example.foodapp.util.Resorce
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,10 +14,10 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
 
-    private var _detailsLiveData = MutableLiveData<Resorce<Meal>>()
+    private var _detailsLiveData = MutableLiveData<Resorce<CategoryMeal>>()
     val detailsLiveData get() = _detailsLiveData
 
-    private var saveStateCategory: Resorce<Meal>? = null
+    private var saveStateCategory: Resorce<CategoryMeal>? = null
 
     fun getMealDetails(mealId: Int) {
         saveStateCategory?.let {

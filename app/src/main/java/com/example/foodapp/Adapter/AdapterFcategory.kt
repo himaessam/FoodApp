@@ -21,7 +21,6 @@ class AdapterFcategory:RecyclerView.Adapter<AdapterFcategory.Holder>() {
         return Holder(binding)
     }
 
-
     override fun getItemCount(): Int {
         return categoryList?.size ?: 0
     }
@@ -46,7 +45,6 @@ class AdapterFcategory:RecyclerView.Adapter<AdapterFcategory.Holder>() {
                 tvCategoryDisc.text = categoryList.strCategoryDescription
 
             }
-
         }
 
     }

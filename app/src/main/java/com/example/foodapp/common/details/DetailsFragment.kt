@@ -9,9 +9,8 @@ import com.bumptech.glide.Glide
 import com.example.foodapp.R
 import com.example.foodapp.base.BaseFragment
 import com.example.foodapp.common.DetailsViewModel
-import com.example.foodapp.common.bottomSheet.BottomSheetFragmentArgs
 import com.example.foodapp.databinding.FragmentDetailsBinding
-import com.example.foodapp.model.Meal
+import com.example.foodapp.model.CategoryMeal
 import com.example.foodapp.util.Resorce
 import com.example.foodapp.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -84,7 +83,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
             tvInstrutionsDetails.visibility = View.VISIBLE
         }
     }
-    private fun setViwe(meal: Meal) {
+    private fun setViwe(meal: CategoryMeal) {
         binding.apply {
             Glide.with(binding.root.context)
                 .load(meal.strMealThumb)

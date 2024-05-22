@@ -1,10 +1,10 @@
-package com.example.foodapp.home
+package com.example.foodapp.ui.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodapp.model.Category
-import com.example.foodapp.model.Meal
+import com.example.foodapp.model.CategoryMeal
 import com.example.foodapp.model.PMeal
 import com.example.foodapp.remot.Repo
 import com.example.foodapp.util.Resorce
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
-    private var _randomMealLiveData = MutableLiveData<Resorce<Meal>>()
+    private var _randomMealLiveData = MutableLiveData<Resorce<CategoryMeal>>()
     private var saveStatePopularMeal: Resorce<List<PMeal>?>? = null
     private var savStateCategory :Resorce<List<Category>?>?=null
 
@@ -29,6 +29,9 @@ class HomeViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
 
     val popularMealsLiveData get() = _popularMealsLiveData
 
+    private var _allCategoriesLiveData = MutableLiveData<Resorce<List<Category>?>>()
+    val allCategoriesLiveData get() = _allCategoriesLiveData
+    private var saveStateCategory: Resorce<List<Category>?>?=null
 
 
 
@@ -86,6 +89,26 @@ class HomeViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
 
             }catch (e:Exception){
                 _categorysLiveDate.postValue(Resorce.Error("An error occurred:${e.message}"))
+            }
+        }
+    }
+    fun getAllCategories() {
+        saveStateCategory?.let {
+            allCategoriesLiveData.postValue(it)
+            return
+        }
+        viewModelScope.launch ( IO ){
+            try {
+                val response = repo.getAllCategories()
+                if (response.categories.isNotEmpty()) {
+                    _allCategoriesLiveData.postValue(Resorce.Success(response.categories))
+                    saveStateCategory = Resorce.Success(response.categories)
+
+                }else {
+                    _allCategoriesLiveData.postValue(Resorce.Error(response.toString()))
+                }
+            } catch (e: Exception) {
+                _allCategoriesLiveData.postValue(Resorce.Error("An error occurred: ${e.message}"))
             }
         }
     }

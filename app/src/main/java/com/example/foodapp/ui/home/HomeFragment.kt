@@ -1,4 +1,4 @@
-package com.example.foodapp.home
+package com.example.foodapp.ui.home
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,7 @@ import com.example.foodapp.Adapter.Adaptertab
 import com.example.foodapp.base.BaseFragment
 import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.model.Category
-import com.example.foodapp.model.Meal
+import com.example.foodapp.model.CategoryMeal
 import com.example.foodapp.model.PMeal
 import com.example.foodapp.util.Resorce
 import com.example.foodapp.util.showToast
@@ -32,6 +32,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         homeViewModel.getRandomMeal()
         homeViewModel.getPupularMeals(categoryList.random())
         homeViewModel.getCategory(categoryList.random())
+        homeViewModel.getAllCategories()
         observe()
         onClicks()
     }
@@ -63,6 +64,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 findNavController().navigate(
                     HomeFragmentDirections.actionHomeFragmentToDetailsFragment(it)
                 )
+            }
+            adapterCategories.setOnClic {
+                findNavController()
+                    .navigate(
+                        HomeFragmentDirections.actionHomeFragmentToMealsFragment(it)
+                    )
             }
         }
     }
@@ -143,7 +150,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
 
-    private fun setRandomMealView(response: Meal) {
+    private fun setRandomMealView(response: CategoryMeal) {
         Glide.with(binding.root.context)
             .load(response.strMealThumb)
             .into(binding.imgRandomMeal)
